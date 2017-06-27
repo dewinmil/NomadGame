@@ -16,6 +16,7 @@ int main()
   windowHeight = s->height;
 
   sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Nomads", sf::Style::Fullscreen);
+  sf::Mouse mouse;
 
   sf::Sprite buttonSprite;
   sf::Color red(255,0,0);
@@ -26,6 +27,7 @@ int main()
   sf::Font abyssinica;
   sf::Image image;
   sf::Texture texture;
+  bool press = false;
 
   //sf::FloatRect localBounds;
 
@@ -51,6 +53,23 @@ int main()
       {
         window.close();
       }
+
+      if(mouse.isButtonPressed(sf::Mouse::Left) && press == true){
+        if(menu.isClicked(mouse.getPosition().x, mouse.getPosition().y) == 0){
+          std::cout << "Hello World1!" << std::endl;
+        } else if (menu.isClicked(mouse.getPosition().x, mouse.getPosition().y) == 1){
+          std::cout << "Hello World2!" << std::endl;
+        } else if (menu.isClicked(mouse.getPosition().x, mouse.getPosition().y) == 2){
+          std::cout << "Hello World3!" << std::endl;
+        }
+      }
+      if(press == true){
+        press = false;
+      }
+      if(!mouse.isButtonPressed(sf::Mouse::Left)){
+        press = true;
+      }
+
 
 
       window.clear();

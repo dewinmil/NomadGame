@@ -9,12 +9,9 @@ class Menu{
 public:
   Menu(int width, int height);
 
-  ~Menu();
 
   void draw(sf::RenderWindow &window);
-
-  void MoveUp();
-  void MoveDown();
+  int isClicked(int x, int y);
 
 private:
   int SelectedItemIndex;
@@ -25,6 +22,7 @@ private:
   sf::Font abyssinica;
   sf::Image image;
   sf::Texture texture;
+  sf::FloatRect bounds;
 
 
 
